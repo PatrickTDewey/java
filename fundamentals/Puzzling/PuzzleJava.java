@@ -21,7 +21,7 @@ public class PuzzleJava {
     public String generatePassword(){
         String passwordString = new String();
         for (int i = 0; i < 8; i++) {
-            passwordString += getRandomLetter();
+            passwordString += (String) getRandomLetter();
         }
         return passwordString;
 
