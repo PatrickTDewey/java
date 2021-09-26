@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class PuzzleJava {
     Random randomGenerator = new Random();
@@ -19,11 +16,11 @@ public class PuzzleJava {
         return alphabet[randomIndex];
     }
     public String generatePassword(){
-        String passwordString = new String();
+        StringBuilder passwordString = new StringBuilder("");
         for (int i = 0; i < 8; i++) {
-            passwordString += (String) getRandomLetter();
+            passwordString.append(getRandomLetter());
         }
-        return passwordString;
+        return passwordString.toString();
 
     }
     public ArrayList<String> getNewPasswordSet(int arrayLength){
