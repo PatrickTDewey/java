@@ -18,12 +18,13 @@ public class Main {
         System.out.println(order1.getName());
 
         order1.addItem(item1);
-        order1.toString();
         order3.addItem(item4);
         order4.addItem(item2);
         order4.getStatusMessage();
 
         order1.setReady(true);
+
+        System.out.println(order1);;
 
         order4.addItem(item2);
         order4.addItem(item2);
