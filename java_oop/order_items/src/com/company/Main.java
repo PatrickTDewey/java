@@ -18,6 +18,7 @@ public class Main {
         System.out.println(order1.getName());
 
         order1.addItem(item1);
+        order2.addItem(item3);
         order3.addItem(item4);
         order4.addItem(item2);
         order4.getStatusMessage();
@@ -30,6 +31,7 @@ public class Main {
         order4.addItem(item2);
 
         order2.setReady(true);
+        System.out.println(item1);
 
 
     }

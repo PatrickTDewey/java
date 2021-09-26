@@ -57,7 +57,7 @@ public class Order {
         double total = 0;
         for (Item item:
              this.items) {
-            total += item.price;
+            total += item.getPrice();
         }
         return String.format("Total: $%.2f", total);
     }
@@ -65,7 +65,7 @@ public class Order {
 
         System.out.println(this.getClass().getSimpleName());
         System.out.println(this.name);
-        this.items.forEach(item -> System.out.println(item.name + " - " +String.format("$%.2f",item.price)));
+        this.items.forEach(item -> System.out.println(item.getName() + " - " +String.format("$%.2f",item.getPrice())));
         System.out.println(this.getOrderTotal());
         return null;
     }
