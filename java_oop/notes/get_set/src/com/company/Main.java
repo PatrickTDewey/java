@@ -23,5 +23,7 @@ public class Main {
         // Print our objects
         System.out.println("Bike object - Wheels: " + bikeWheels + ", Color: " + bikeColor);
         System.out.println("Car object - Wheels: " + carWheels + ", Color: " + carColor);
+
+        car.objectMethods(bike);
     }
 }
