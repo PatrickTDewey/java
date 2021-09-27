@@ -1,4 +1,4 @@
-package com.company;
+// package com.company;
 
 
 public class Main {
@@ -17,26 +17,16 @@ public class Main {
 
         System.out.println(order1.getName());
 
-//        order1.addItem(item1);
-//        order2.addItem(item3);
-//        order3.addItem(item4);
-//        order4.addItem(item2);
-//        order4.getStatusMessage();
 
-//        order1.setReady(true);
-
-
-//        order4.addItem(item2);
-//        order4.addItem(item2);
-//        order2.setReady(true);
 
         // add menu item
         kiosk.addMenuItem(item1.getName(), item1.getPrice());
         kiosk.addMenuItem("Churro", 3.20);
         System.out.println(kiosk.getMenu().get(1));
         kiosk.displayMenu();
-        kiosk.newOrder();
-//        System.out.println(kiosk);
+        // kiosk.newOrder();
+        System.out.println(kiosk.addItemByInput());
+
 
     }
 }

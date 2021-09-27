@@ -1,4 +1,4 @@
-package com.company;
+
 
 import java.util.ArrayList;
 
@@ -50,10 +50,30 @@ public class CoffeeKiosk {
         System.out.println("Enter the number of the menu item you would like to add to your order.");
         String itemNumber =  System.console().readLine();
         while (!itemNumber.equals("q")) {
-            order.addItem(order.getItems().get(Integer.parseInt(itemNumber)));
+            try {
+                order.addItem(this.getMenu().get(Integer.parseInt(itemNumber)));
+                itemNumber = System.console().readLine();
+            } catch(Exception e){
+                System.out.println(e);
+                System.out.println("There is no menu item with that index");
+                itemNumber = System.console().readLine();
+            }
         }
         this.getOrders().add(order);
+        System.out.println(order);
         return this.getOrders();
 
+    }
+    public ArrayList<Item> addItemByInput(){
+        System.out.println("Enter new item in format 'itemName itemPrice'. Press q to quit");
+        String input = System.console().readLine();
+        while(!input.equals("q")){
+            String[] nameAndPrice = input.split(" ");
+            System.out.println(nameAndPrice[0] + " "+ nameAndPrice[1]);
+            this.addMenuItem(nameAndPrice[0], Double.parseDouble(nameAndPrice[1]));
+        }
+        return menu;
+
+        
     }
 }
