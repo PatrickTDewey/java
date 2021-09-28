@@ -2,7 +2,6 @@ package com.thescheduler.zookeeper;
 
 public class Gorilla extends Mammal {
     private final String name;
-
     public Gorilla(String name) {
         this.name = name;
     }

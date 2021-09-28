@@ -43,7 +43,7 @@ public class CoffeeKiosk {
         return this.getClass().getSimpleName() + "\r\n" + this.getMenu() + "\r\n" + this.getOrders();
     }
 
-    public ArrayList<Order> newOrder() {
+    public void newOrder() {
         System.out.println("Please enter customer name for new order");
         String orderName = System.console().readLine();
         Order order = new Order(orderName);
@@ -53,7 +53,6 @@ public class CoffeeKiosk {
             order.addItem(order.getItems().get(Integer.parseInt(itemNumber)));
         }
         this.getOrders().add(order);
-        return this.getOrders();
 
     }
 }

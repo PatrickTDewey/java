@@ -6,6 +6,8 @@ public class Main {
 	// write your code here
         Mammal mammal = new Mammal();
         Gorilla gorilla = new Gorilla("harambe");
+        Bat bat = new Bat();
+
         System.out.println(gorilla);
         System.out.println(gorilla.throwSomething("banana"));
         System.out.println(gorilla.throwSomething("apple"));
@@ -13,5 +15,16 @@ public class Main {
         System.out.println(gorilla.throwSomething("acorn"));
         gorilla.eatBananas();
         gorilla.climb();
+
+        bat.attackTown();
+        bat.attackTown();
+        bat.attackTown();
+
+        bat.eatHuman();
+        bat.eatHuman();
+
+        bat.fly();
+        bat.fly();
+
     }
 }
