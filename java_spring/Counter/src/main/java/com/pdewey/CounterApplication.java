@@ -1,16 +1,13 @@
-package com.pdewey.fruityloops;
+package com.pdewey;
 
 import org.springframework.boot.SpringApplication;
-
-
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-//@ComponentScan({"com.pdewey.controllers"})
-public class FruityLoopsApplication {
+public class CounterApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FruityLoopsApplication.class, args);
+		SpringApplication.run(CounterApplication.class, args);
 	}
 
 }

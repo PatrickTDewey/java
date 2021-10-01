@@ -1,4 +1,4 @@
-package com.pdewey.models;
+package com.pdewey.fruityloops.models;
 
 public class Item {
 
