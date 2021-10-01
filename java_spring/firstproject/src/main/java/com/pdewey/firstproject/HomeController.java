@@ -1,29 +1,15 @@
 package com.pdewey.firstproject;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/hello")
+@Controller
 public class HomeController {
-
-	// 1. Annotation
-	@RequestMapping("")
-	public String hello() {
-		return "Hello World";
-	}
-
-	// 2. New route
-	@RequestMapping("/new_route")
-	public String greet() {
-		return "You made it to the new route";
-	}
-
-	// 3. world route
-	@RequestMapping("/world")
-	public String world() {
-		return "Class level annotations are cool too.";
-
+	@RequestMapping("/")
+	public String home(Model model) {
+		model.addAttribute("fruit", "banana");
+		return "index.jsp";
 	}
 
 }
