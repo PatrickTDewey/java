@@ -9,8 +9,8 @@
 		<version>2.5.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pdewey.controllers</groupId>
-	<artifactId>HopperReceipt</artifactId>
+	<groupId>com.pdewey.fruitloops</groupId>
+	<artifactId>FruityLoops</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>HopperReceipt</name>

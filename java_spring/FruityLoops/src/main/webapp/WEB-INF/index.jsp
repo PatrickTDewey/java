@@ -18,25 +18,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>
-		Customer Name:
-		<c:out value="${name }" />
-	</h3>
-	<p>
-		Item Name:
-		<c:out value="${itemName}" />
-	</p>
-	<p>
-		Price:
-		<c:out value="${price}" />
-	</p>
-	<p>
-		Description
-		<c:out value="${description}" />
-	</p>
-	<p>
-		Vendor:
-		<c:out value="${vendor}" />
-	</p>
+ <div class="container-sm">
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+			<td>Name</td>
+			<td>Price</td>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach var="fruit" items="${fruits}">
+			<tr>
+				<td><c:out value="${fruit.name}"/></td>
+				<td><c:out value="${fruit.price}"/></td>
+			</tr>
+		</c:forEach>
+		</tbody>
+	</table>
+	</div>
 </body>
 </html>

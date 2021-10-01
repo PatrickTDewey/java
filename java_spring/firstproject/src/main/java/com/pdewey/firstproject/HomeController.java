@@ -9,6 +9,8 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home(Model model) {
 		model.addAttribute("fruit", "banana");
+		model.addAttribute("fruit", "banana");
+		
 		return "index.jsp";
 	}
 
