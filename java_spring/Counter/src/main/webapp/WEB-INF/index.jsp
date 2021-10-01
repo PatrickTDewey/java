@@ -20,6 +20,9 @@
 <body>
 	<div class="container-sm p-5 text-center">
 		<h3 class="h3">Welcome User!</h3>
+		<a href="/add_two" class="btn btn-primary">Add Two</a>
+		<a href="/reset" class="btn btn-danger">Reset</a>
+		<a href="/counter" class="btn btn-link">View Count</a>
 		
 	</div>
 </body>

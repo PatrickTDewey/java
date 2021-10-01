@@ -26,4 +26,17 @@ public class CounterController {
 		model.addAttribute("currentCount", session.getAttribute("count"));
 		return "counter.jsp";
 	}
+	@RequestMapping("/add_two")
+	public String addTwo(HttpSession session) {
+		Integer currentCount = (Integer) session.getAttribute("count");
+		currentCount++;
+		session.setAttribute("count",currentCount);
+		System.out.println(currentCount);
+		return "redirect:/";
+	}
+	@RequestMapping("/reset")
+	public String reset(HttpSession session) {
+		session.setAttribute("count", 0);
+		return "redirect:/";
+	}
 }

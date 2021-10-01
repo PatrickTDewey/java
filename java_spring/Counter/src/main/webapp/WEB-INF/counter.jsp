@@ -19,7 +19,7 @@
 </head>
 <body>
 	<div class="container-sm p-5 text-center">
-		<h3>You have visited <a href="http://localhost:8080/">http://your_server</a> <c:out value="${currentCount}" /> times</h3>
+		<h3>You have visited <a href="/">http://your_server</a> <c:out value="${currentCount}" /> times</h3>
 		
 	</div>
 </body>
