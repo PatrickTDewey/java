@@ -86,6 +86,7 @@ public class MainController {
 				System.out.println(process);
 				
 				break;
+				
 			case "casino":
 				System.out.println("casino");
 				
@@ -111,6 +112,7 @@ public class MainController {
 			default:
 				System.out.println("No case statement evaluated to true");
 				break;
+				
 		}
 		
 		return "redirect:/";
