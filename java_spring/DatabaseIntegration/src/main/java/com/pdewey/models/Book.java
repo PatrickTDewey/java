@@ -2,7 +2,6 @@ package com.pdewey.models;
 
 import java.util.Date;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,34 +16,55 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "books")
 public class Book {
+	// ********** Member Variables ****************
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Size(min = 5, max = 200)
+
+	@Size(min = 5, max = 200, message = "Title must be between 5 and 200 characters.")
 	private String title;
-	@Size(min = 20, max = 200)
+
+	@Size(min = 20, max = 200, message = "Description must be between 20 and 200 characters.")
 	private String description;
-	@Size(min = 3, max = 40)
+
+	@Size(min = 3, max = 40, message = "Description must be between 20 and 200 characters.")
 	private String language;
+
 	@Min(100)
 	private Integer numberOfPages;
-	// This will not allow the createdAt column to be updated after
-	@Column(updatable = false)
-	private Date createdAt;
-	private Date updatedAt;
 
-	// Constructors
+	
+	
+	@Column(updatable = false) // *This will not allow the createdAt column to be updated after*
+	private Date createdAt;
+
+	private Date updatedAt;
+	
+
+	// ********** Constructors ********************
+
 	public Book() {
 
 	}
 
-	public Book(@Size(min = 5, max = 200) String title, @Size(min = 20, max = 200) String description, @Size(min = 3, max = 40) String language,
-			@Min(100) Integer numberOfPages) {
+	public Book(
+			@Size( min = 5, max = 200 ) String title,
+			@Size( min = 20, max = 200 ) String description,
+			@Size( min = 3, max = 40 ) String language,
+			@Min( 100 ) Integer numberOfPages
+			) {
 		super();
 		this.title = title;
 		this.description = description;
 		this.language = language;
 		this.numberOfPages = numberOfPages;
+	}
+
+	// ********** Getters and Setters *************
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getDescription() {
@@ -53,11 +73,6 @@ public class Book {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	// Getters and Setters
-	public Long getId() {
-		return id;
 	}
 
 	public void setId(Long id) {
@@ -86,6 +101,14 @@ public class Book {
 
 	public void setNumberOfPages(Integer numberOfPages) {
 		this.numberOfPages = numberOfPages;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 
 	public Date getCreatedAt() {

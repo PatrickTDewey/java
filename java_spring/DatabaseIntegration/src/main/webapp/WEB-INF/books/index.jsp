@@ -49,7 +49,7 @@
 				
 			</tbody>			
 		</table>
-		
+		<a href="/books/new" class="btn btn-success">Add Book</a>
 	</div>
 </body>
 </html>
