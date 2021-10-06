@@ -13,18 +13,22 @@ import com.pdewey.repositories.BookRepository;
 public class BookService {
 	// adding the book repository as a dependency
 	private final BookRepository bookRepository;
-
+	
+	// constructor
 	public BookService(BookRepository bookRepository) {
+		
 		this.bookRepository = bookRepository;
 	}
 
 	// returns all the books
 	public List<Book> allBooks() {
+		
 		return bookRepository.findAll();
 	}
 
 	// creates a book
 	public Book createBook(Book b) {
+		
 		return bookRepository.save(b);
 	}
 
@@ -32,12 +36,15 @@ public class BookService {
 	public Book findBook(Long id) {
 		Optional<Book> optionalBook = bookRepository.findById(id);
 		if (optionalBook.isPresent()) {
+			
 			return optionalBook.get();
-		} else {
-			return null;
-		}
+			
+		} 
+			
+		return null;
+		
 	}
-
+	// update a book
 	public Book updateBook(Long id, String title, String description, String language, Integer pages) {
 		Optional<Book> getBook = bookRepository.findById(id);
 		
@@ -48,6 +55,7 @@ public class BookService {
 			updateBook.setLanguage(language);
 			updateBook.setDescription(description);
 			updateBook.setNumberOfPages(pages);
+			
 			return bookRepository.save(updateBook);
 			
 		}
@@ -55,7 +63,9 @@ public class BookService {
 		return null;
 	}
 
+	// delete a book
 	public void deleteBook(Long id) {
+		
 		bookRepository.deleteById(id);
 		
 	}

@@ -15,41 +15,19 @@
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="js/app.js"></script>
-<title>Index View</title>
+<title>Book Details View</title>
 </head>
 <body>
 	<div class="container">
-		<h1>Books</h1>
+	
+		<h1 class="display-4">Book Details for <c:out value="${ book.title }"/> </h1>
+		<h3 class="h3">Title: <c:out value="${ book.title }"/></h3>
+		<h3 class="h3">Language: <c:out value="${ book.language }"/></h3>
+		<h3 class="h3">Description: <c:out value="${ book.description }"/></h3>
+		<h3 class="h3">Pages: <c:out value="${ book.numberOfPages }"/></h3>
+		<h3 class="h3">Created At: <c:out value="${ book.createdAt }"/></h3>
 		
-		<table class="table table-striped table-hover">
-			<thead>
-			
-				<tr>
-					<th>Title</th>
-					<th>Description</th>
-					<th>Language</th>
-					<th>Pages</th>
-				</tr>
-				
-			</thead>
-			<tbody> 
-				
-				<c:forEach var="book" items="${ allBooks }">
-					
-					<tr>
-						<td>
-						<a href="/books/<c:out value="${ book.id }"/>" ><c:out value="${ book.title }" /></a>
-						</td>
-						<td><c:out value="${ book.description }"/></td>
-						<td><c:out value="${ book.language }" /></td>
-						<td><c:out value="${ book.numberOfPages }" /></td>
-					</tr>
-					
-				</c:forEach>
-				
-			</tbody>			
-		</table>
-		
+		<a href='/' class="btn btn-primary">Home</a>		
 	</div>
 </body>
 </html>

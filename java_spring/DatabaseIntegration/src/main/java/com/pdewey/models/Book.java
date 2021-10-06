@@ -29,7 +29,6 @@ public class Book {
 	@Min(100)
 	private Integer numberOfPages;
 	// This will not allow the createdAt column to be updated after
-	// creation...possible final?
 	@Column(updatable = false)
 	private Date createdAt;
 	private Date updatedAt;
