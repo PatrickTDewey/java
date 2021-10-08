@@ -104,6 +104,15 @@ spring.mvc.hiddenmethod.filter.enabled=true
     <version>3.6.0</version>
 </dependency>
 
+<!-- DEPENDENCIES FOR LOGIN REG -->
+
+<dependency>
+    <groupId>org.mindrot</groupId>
+    <artifactId>jbcrypt</artifactId>
+    <version>0.4</version>
+</dependency>
+
+
 
 
 
@@ -116,6 +125,8 @@ spring.mvc.hiddenmethod.filter.enabled=true
 // ********** Primary Key ******************
 
 // ********** Member Variables *************
+
+// ********** Relationships ****************
 
 // ********** Auto Add Repository Deps *****
 
@@ -140,6 +151,8 @@ spring.mvc.hiddenmethod.filter.enabled=true
 // ********** Index ************************
 
 // ********** Add View *********************
+
+// ********** Login User *******************
 
 @PreUpdate
 public void onUpdate() {
