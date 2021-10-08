@@ -105,9 +105,9 @@ spring.mvc.hiddenmethod.filter.enabled=true
 </dependency>
 
 
-// ********** Action Routes ****************
 
-// ********** Display Routes ***************
+
+// ========== Display Routes =============== //
 
 // ********** Getters and Setters **********
 
@@ -117,17 +117,29 @@ spring.mvc.hiddenmethod.filter.enabled=true
 
 // ********** Member Variables *************
 
-// ***** Auto Add Repository Dependency ****
+// ********** Auto Add Repository Deps *****
 
 // ********** Create / Update **************
 
 // ********** Find One *********************
 
-// ***** Auto Add Repository Dependency ****
-
 // ********** Find All *********************
 
+// ========== Action Routes ================ //
+
 // ********** Delete ***********************
+
+// ********** Create ***********************
+
+// ********** Update ***********************
+
+// ********** Edit View ********************
+
+// ********** Details View *****************
+
+// ********** Index ************************
+
+// ********** Add View *********************
 
 @PreUpdate
 public void onUpdate() {

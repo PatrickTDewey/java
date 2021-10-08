@@ -2,7 +2,6 @@ package com.pdewey.controllers;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;
@@ -45,6 +44,7 @@ public class MainController {
 		Random random = new Random();
 		
 		//  Unchecked cast from Object to array list
+		@SuppressWarnings("unchecked")
 		ArrayList<String> sessionMessages = (ArrayList<String>) session.getAttribute("messages");
 		
 	
