@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
@@ -19,15 +20,16 @@ import javax.validation.constraints.Size;
 public class Expense {
 	
 	// ********** Member Variables *************
+	
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private Long id;
 	
-	@NotNull( message = "Expense name cannot be empty." )
+	@NotBlank( message = "Expense name cannot be empty." )
 	@Size( min = 2, max = 20, message = "Expense name must be between 2 and 20 characters " )
 	private String name;
 	
-	@NotNull( message = "Vendor must not be empty." )
+	@NotBlank( message = "Vendor must not be empty." )
 	@Size( min = 2, max = 15, message = "Vendor must be between 2 and 15 characters." )
 	private String vendor;
 	
@@ -35,7 +37,7 @@ public class Expense {
 	@Positive( message = "Amount must be greater than zero." )
 	private double amount;
 	
-	@NotNull( message="Description must not be empty." )
+	@NotBlank( message="Description must not be empty." )
 	@Size( min = 8, max = 200, message = "Description must be between 8 and 200 characters." )
 	private String description;
 	
@@ -45,6 +47,7 @@ public class Expense {
 	private Date updatedAt;
 	
 	// ********** Constructors *****************
+	
 	public Expense() {}
 	
 	public Expense(
@@ -60,6 +63,7 @@ public class Expense {
 	}
 	
 	// ********** Getters and Setters **********
+	
 	public Long getId() {
 		return id;
 	}
@@ -117,6 +121,7 @@ public class Expense {
 	}
 	
 	// ********** Update And Create ************
+	
 	@PreUpdate
 	public void onUpdate() {
 		this.updatedAt = new Date();

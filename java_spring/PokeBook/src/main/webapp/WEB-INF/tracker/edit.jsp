@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
+<%@ page isErrorPage="true" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,54 +24,9 @@
 <body>
 	<div class="container">
 		
-		<table class="table table-striped table-hover">
-			<thead>
-			
-				<tr>
-					<th>Expense</th>
-					
-					<th>Vendor</th>
-					
-					<th>Description</th>
-					
-					<th>Amount</th>
-					
-					<th>Actions</th>
-				</tr>
-				
-			</thead>
-			<tbody> 
-			
-				<c:if test="${ !expenses.isEmpty() }">
-					<c:forEach var="expense" items="${ expenses }">
-						
-						<tr>
-							<td><c:out value="${ expense.name }" /></td>
-							
-							<td><c:out value="${ expense.vendor }"/></td>
-							
-							<td><c:out value="${ expense.description }"/></td>
-							
-							<td><fmt:formatNumber value="${ expense.amount }" type="currency" /></td>
-							
-							<td>
-								<a href="/expenses/<c:out value="${ expense.id }"/>" >View</a>
-								<a href="/expenses/edit/<c:out value="${ expense.id }"/>" >Edit</a>
-								<form:form action="/expenses/delete/${ expense.id }" method="DELETE"> 
-									<input type="submit" value="Delete" class="btn btn-link" />
-								</form:form>
-								
-							</td>
-						</tr>
-						
-					</c:forEach>
-				</c:if>
-				
-			</tbody>			
-		</table>
+		<h1 class="h1">Edit Expense</h1>
 		
-		
-		<form:form action='/expenses/create' method='POST' modelAttribute="expense" class="mt-3">
+		<form:form action="/expenses/${ expense.id }" method='PUT' modelAttribute="expense" class="mt-3">
 		
 		    <div class="form-floating mb-3">
 		    
@@ -98,7 +50,7 @@
 		    
 		    <div class="form-floating mb-3">
 		    	
-		    	<form:input type="number" step="0.01" placeholder="00.00" value="0.00" class="form-control" path="amount" />
+		    	<form:input type="number" step="0.01" placeholder="00.00" class="form-control" path="amount" />
 				
 				<form:label class="form-label" path="amount">Amount:</form:label >
 				
@@ -115,10 +67,15 @@
 		    	<form:errors class="text-danger" path="description"/>
 				
 		    </div>
+		    
+		    <!--<form:input type="hidden" value="${ expense.id }" path="id" />-->
+		    
 		  
 		   
 		   	<input class="btn btn-primary" type='submit' value='Add Expense' >
 		</form:form>
+		
+		
 		
 	</div>
 </body>

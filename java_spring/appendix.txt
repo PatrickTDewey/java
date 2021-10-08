@@ -13,6 +13,10 @@ spring.mvc.hiddenmethod.filter.enabled=true
 
 
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<%@ page isErrorPage="true" %>
+
 <!-- DEPENDENCIES FOR STARTING SPRING PROJECTS-->
 
 <dependency>
@@ -102,11 +106,38 @@ spring.mvc.hiddenmethod.filter.enabled=true
 
 
 // ********** Action Routes ****************
+
 // ********** Display Routes ***************
+
 // ********** Getters and Setters **********
+
 // ********** Constructors *****************
+
+// ********** Primary Key ******************
+
 // ********** Member Variables *************
 
+// ***** Auto Add Repository Dependency ****
+
+// ********** Create / Update **************
+
+// ********** Find One *********************
+
+// ***** Auto Add Repository Dependency ****
+
+// ********** Find All *********************
+
+// ********** Delete ***********************
+
+@PreUpdate
+public void onUpdate() {
+	this.updatedAt = new Date();
+}
+
+@PrePersist
+public void onCreate() {
+	this.createdAt = new Date();
+}
 
 
 

@@ -12,24 +12,29 @@ import com.pdewey.pokebook.repositories.ExpenseRepository;
 public class ExpenseService {
 	
 	// ********** Member Variables *************
+	
 	private final ExpenseRepository expenseRepository;
 	
 	// ********** Constructors *****************
+	
 	public ExpenseService(ExpenseRepository expenseRepository) {
 		
 		this.expenseRepository = expenseRepository;
 	}
 	
+	
+	// ********** Create / Update **************
+	
+	public Expense createExpense( Expense expense ) {
+		
+		return expenseRepository.save( expense );
+	}
+	
+	
 	// ********** Find All *********************
 	public List<Expense> allExpenses(){
 		
 		return expenseRepository.findAll();
-	}
-	
-	// ********** Create ***********************
-	public Expense createExpense( Expense expense ) {
-		
-		return expenseRepository.save( expense );
 	}
 	
 	// ********** Find One *********************
@@ -48,7 +53,6 @@ public class ExpenseService {
 		}
 	}
 	
-	// ********** Find One And Update **********
 	
 	// ********** Delete ***********************
 	public void deleteExpense(Long id) {
