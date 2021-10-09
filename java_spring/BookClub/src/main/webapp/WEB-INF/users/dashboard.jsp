@@ -22,8 +22,42 @@
 </head>
 <body>
 	<div class="container">
-		<h1 class="h1">Dashboard</h1>
-		<a href="/users/logout" class="btn btn-link">Logout</a>
+	
+		<div class="row">
+		
+			<div class="col-sm-8">
+				<h1 class="h1">Welcome, <c:out value="${ user.userName }" /></h1>
+				<h3 class="h3">Books from everyone's shelves.</h3>
+			</div>
+			<div class="col-auto">
+				<a href="/users/logout" class="btn btn-link">Logout</a>
+				<a href="/books/new" class="btn btn-link">+ Add a book to my shelf</a>
+			</div>
+			
+		</div>
+		
+		<table class="table table-dark text-light table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Posted By</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:if test="${ !books.isEmpty() }">
+					<c:forEach var="book" items="${ books }">
+						<tr>
+							<td><c:out value="${ book.id }" /></td>
+							<td><a href="/books/view/<c:out value="${ book.id }" />"><c:out value="${ book.title }" /></a></td>
+							<td><c:out value="${ book.author }" /></td>
+							<td><c:out value="${ book.user.userName }" /></td>
+						</tr>
+					</c:forEach>
+				</c:if>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>

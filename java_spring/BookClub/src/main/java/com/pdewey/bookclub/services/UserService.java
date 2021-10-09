@@ -49,6 +49,20 @@ public class UserService {
 		}
 	}
 	
+	// ********** Find One *********************
+	
+	public User getUser( Long id ) {
+		
+		Optional<User> userOptional = userRepository.findById( id );
+		
+		if ( userOptional.isPresent() ) {
+			
+			return userOptional.get();
+		}
+		
+		return null;
+	}
+	
 	// ********** Login User *******************
 	
 	public User login( LoginUser newLogin, BindingResult result ) {

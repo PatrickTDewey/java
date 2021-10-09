@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.pdewey.bookclub.models.LoginUser;
 import com.pdewey.bookclub.models.User;
+import com.pdewey.bookclub.services.BookService;
+import com.pdewey.bookclub.services.BookService;
 import com.pdewey.bookclub.services.UserService;
 
 @Controller
@@ -22,6 +24,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private BookService bookService;
 	
 	// ========== Display Routes =============== //
 	
@@ -39,7 +44,11 @@ public class UserController {
 	// ********** Dashboard ********************
 	
 	@GetMapping( "/home" )
-	public String dashboard(Model model, HttpSession session ) {
+	public String dashboard( Model model, HttpSession session ) {
+		
+		model.addAttribute("user", userService.getUser( (Long) session.getAttribute("user_id")) );
+		
+		model.addAttribute( "books", bookService.findAll() );
 		
 		return "users/dashboard.jsp";
 	}
