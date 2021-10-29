@@ -1,4 +1,4 @@
-package com.pdewey.bookclub.controllers;
+package com.pdewey.controllers;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.pdewey.bookclub.models.LoginUser;
-import com.pdewey.bookclub.models.User;
-import com.pdewey.bookclub.services.BookService;
-import com.pdewey.bookclub.services.UserService;
+import com.pdewey.models.LoginUser;
+import com.pdewey.models.User;
+import com.pdewey.services.UserService;
+
+
 
 @Controller
 public class UserController {
@@ -24,8 +25,6 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private BookService bookService;
 	
 	// ========== Display Routes =============== //
 	
@@ -37,6 +36,8 @@ public class UserController {
 		model.addAttribute( "newUser", new User() );
 		model.addAttribute( "newLogin", new LoginUser() );
 		
+		
+		
 		return "users/index.jsp";
 	}
 	
@@ -46,8 +47,6 @@ public class UserController {
 	public String dashboard( Model model, HttpSession session ) {
 		
 		model.addAttribute("user", userService.getUser( (Long) session.getAttribute("user_id")) );
-		
-		model.addAttribute( "books", bookService.findAll() );
 		
 		return "users/dashboard.jsp";
 	}

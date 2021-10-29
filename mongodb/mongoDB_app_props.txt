@@ -1,0 +1,2 @@
+*******Mongo DB Spring***************
+spring.data.mongodb.uri=mongodb://user:userpw:localhost:55555/portfolio_db

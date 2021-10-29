@@ -150,9 +150,15 @@ spring.mvc.hiddenmethod.filter.enabled=true
 
 // ********** Index ************************
 
+// ********** Dashboard ********************
+
 // ********** Add View *********************
 
 // ********** Login User *******************
+
+// ********** Login ************************
+
+// ********** Logout ***********************
 
 @PreUpdate
 public void onUpdate() {
@@ -211,4 +217,18 @@ public void onCreate() {
 	    
 	    	<input class="btn btn-primary" type='submit' value='Add Book' >
 </form:form>
+
+<%--<c:if test="${ !classes.isEmpty() }">
+					<c:forEach var="class" items="${ classes }">
+						<tr>
+							<td><c:out value="${ class.id }" /></td>
+							<td>
+							<a href="/classes/view/${ class.id }"><c:out value="${ class.className }" /></a>
+							<c:if test="${ classes.instructor.getId()) == user.id }"><a href="/classes/edit/${class.id}" class="btn btn-warning"></a></c:if>
+							</td>
+							<td><c:out value="${ class.time }" /></td>
+							<td><c:out value="${ class.dropInPrice }" /></td>
+						</tr>
+					</c:forEach> 
+				</c:if> --%>
 
