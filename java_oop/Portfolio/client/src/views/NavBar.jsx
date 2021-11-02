@@ -1,11 +1,15 @@
-import {AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography} from "@mui/material";
-import {DarkMode, GitHub, MenuBook, MenuRounded, More, PictureAsPdfRounded} from "@mui/icons-material";
-import {useRef, useState} from "react";
+import {AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography, useTheme} from "@mui/material";
+import {DarkMode, GitHub, MenuRounded, More, PictureAsPdfRounded} from "@mui/icons-material";
+import {useContext, useRef, useState} from "react";
+import ColorModeContext from "../context/ColorModeContext";
 
 
 const NavBar = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
+
+    const theme = useTheme();
+    const colorMode = useContext(ColorModeContext);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -21,7 +25,7 @@ const NavBar = () => {
         handleMobileMenuClose();
     }
 
-    const handleMenuOpen = (e) => {
+    const handleMenuOpen = () => {
         setAnchorEl(anchorRef.current)
     }
 
@@ -61,6 +65,7 @@ const NavBar = () => {
                 vertical: 'top',
                 horizontal:'right'
             }}
+            ref={anchorRef}
             id={mobileMenuId}
             keepMounted
             transformOrigin={{
@@ -93,12 +98,12 @@ const NavBar = () => {
                 </IconButton>
                 <p>Resume</p>
             </MenuItem>
-            <MenuItem onClick={handleMobileMenuClose}>
+            <MenuItem >
                 <IconButton
                     size={"medium"}
                     color={"inherit"}
                     aria-label={"Dark Mode Icon"}
-
+                    onClick={colorMode.toggleColorMode}
                 >
                     <DarkMode/>
                 </IconButton>
@@ -108,7 +113,7 @@ const NavBar = () => {
     );
     return (
         <Box sx={{flexGrow: 1}}>
-            <AppBar enableColorOnDark={true} position={"static"}>
+            <AppBar enableColorOnDark={true} position={"static"} >
                 <Toolbar>
                     <IconButton
                         size={"large"}
@@ -121,10 +126,13 @@ const NavBar = () => {
                         >
                         <MenuRounded/>
                     </IconButton>
-                    <Typography variant={ "h5" } component={ "div" } sx={{ flexGrow: 1 }}>
+                    <Typography variant={ "h2" } component={ "h2" } sx={{ flexGrow: 1, fontWeight: 800  }}>
                         Patrick Dewey
                     </Typography>
+                    <Typography variant={"h6"} sx={{ mr: 2 }}>{theme.palette.mode.toUpperCase()} MODE</Typography>
+                    {/*// Right Menu Buttons*/}
                     <Box sx={{ display: { xs: 'none', md: 'flex', alignItems:"center", justifyContent: "space-around" } }}>
+                        {/*// GitHub Button*/}
                         <IconButton
                             size={"large"}
                             edge={"start"}
@@ -133,7 +141,7 @@ const NavBar = () => {
                         >
                             <GitHub/>
                         </IconButton>
-
+                        {/*// Resume Button*/}
                         <IconButton
                             size={"large"}
                             edge={"start"}
@@ -143,13 +151,13 @@ const NavBar = () => {
                         >
                             <PictureAsPdfRounded/>
                         </IconButton>
-
+                        {/*// Dark mode button*/}
                         <IconButton
                             size={"medium"}
                             edge={"start"}
                             color={"inherit"}
                             aria-label={"Dark Mode Icon"}
-
+                            onClick={colorMode.toggleColorMode}
                         >
                             <DarkMode/>
                         </IconButton>
