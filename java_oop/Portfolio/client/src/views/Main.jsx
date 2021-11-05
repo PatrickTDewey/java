@@ -1,8 +1,12 @@
+import {Box} from "@mui/material";
+
 function Main(){
-    return(
-        <div className={'main-div'}>
-        </div>
-    )
+    const theme = useTheme()
+    return (
+        <Box className={'main-div'} sx={{height: '100%'}}>
+            <p>Hi</p>
+        </Box>
+    );
 }
 
 export default Main
